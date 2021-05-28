@@ -1,5 +1,3 @@
-from datetime import timedelta
-
 from fastapi import APIRouter, Depends, status, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
@@ -7,7 +5,6 @@ from sqlalchemy.orm import Session
 from src.user.services import get_user_by_username
 from src.database import get_db
 from src.auth import schemas, services
-from src import settings
 
 
 router = APIRouter(prefix='/auth', tags=['Authorization'])
@@ -32,10 +29,6 @@ def login(
             detail='Invalid password'
         )
 
-    token = services.create_token(
-        data={'username': user.username},
-        sub=settings.ACCESS_TOKEN_SUB,
-        expires_delta=timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
-    )
+    token = services.create_access_token({'username': user.username})
 
     return schemas.AccessToken(access_token=token, token_type='bearer')
