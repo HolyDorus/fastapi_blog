@@ -2,7 +2,7 @@ from fastapi import HTTPException, status
 from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
 
-from src.blogs import models, schemas
+from src.blog import models, schemas
 
 
 def get_all_blogs(db: Session) -> list[models.Blog]:

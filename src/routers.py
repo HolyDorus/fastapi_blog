@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
 from src import settings
-from src.blogs.routes import router as blog_router
-from src.users.routes import router as user_router
+from src.blog.routes import router as blog_router
+from src.user.routes import router as user_router
 from src.auth.routes import router as auth_router
 
 

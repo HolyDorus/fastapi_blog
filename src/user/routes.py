@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
 from src.database import get_db
-from src.users import schemas, services, models
+from src.user import schemas, services, models
 from src.auth.permissions import get_current_user, get_current_active_user
 
 

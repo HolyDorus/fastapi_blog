@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, Response, status
 from sqlalchemy.orm import Session
 
 from src.database import get_db
-from src.blogs import schemas, services
+from src.blog import schemas, services
 
 
 router = APIRouter(prefix='/blogs', tags=['Blogs'])

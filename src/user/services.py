@@ -2,7 +2,7 @@ from fastapi import HTTPException, status
 from sqlalchemy.sql import exists
 from sqlalchemy.orm import Session
 
-from src.users import models, schemas
+from src.user import models, schemas
 from src.auth.services import get_password_hash
 
 
