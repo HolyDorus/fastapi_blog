@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "fastapi_blog"
+version = "0.1.0"
+description = ""
+authors = ["HolyDorus <marichevdenysmail@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.65.1"
+SQLAlchemy = "^1.4.15"
+uvicorn = "^0.13.4"
+psycopg2-binary = "^2.8.6"
+alembic = "^1.6.4"
+email-validator = "^1.1.2"
+PyJWT = "^2.1.0"
+passlib = "^1.7.4"
+python-multipart = "^0.0.5"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.9.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
