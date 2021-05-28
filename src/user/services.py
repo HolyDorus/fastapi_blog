@@ -2,8 +2,8 @@ from fastapi import HTTPException, status
 from sqlalchemy.sql import exists
 from sqlalchemy.orm import Session
 
+from src.user.utils import get_password_hash
 from src.user import models, schemas
-from src.auth.services import get_password_hash
 
 
 def get_user_by_username(username: str, db: Session) -> models.User:

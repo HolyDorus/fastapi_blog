@@ -2,20 +2,8 @@ from datetime import datetime, timedelta
 
 import jwt
 from fastapi import HTTPException, status
-from passlib.context import CryptContext
 
 from src import settings
-
-
-pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
-
-
-def verify_password(password: str, hashed_password: str) -> bool:
-    return pwd_context.verify(password, hashed_password)
-
-
-def get_password_hash(password: str) -> str:
-    return pwd_context.hash(password)
 
 
 def create_access_token(data: dict) -> str:

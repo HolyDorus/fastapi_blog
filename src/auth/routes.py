@@ -3,6 +3,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 from src.user.services import get_user_by_username
+from src.user.utils import verify_password
 from src.database import get_db
 from src.auth import schemas, services
 
@@ -23,7 +24,7 @@ def login(
             detail=f'User with username={form_data.username} not found'
         )
 
-    if not services.verify_password(form_data.password, user.password):
+    if not verify_password(form_data.password, user.password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail='Invalid password'
@@ -31,4 +32,4 @@ def login(
 
     token = services.create_access_token({'username': user.username})
 
-    return schemas.AccessToken(access_token=token, token_type='bearer')
+    return schemas.AccessToken(access_token=token)
